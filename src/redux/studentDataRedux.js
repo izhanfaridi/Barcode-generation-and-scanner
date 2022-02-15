@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"
 const studentDataSlice = createSlice({
     name:"Student",
     initialState:{
-        studentData:null,
+        studentData:{},
     },
     reducers:{
         addStudent:(state,action)=>{

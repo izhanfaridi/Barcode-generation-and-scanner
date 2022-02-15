@@ -43,29 +43,16 @@ const useStyles=makeStyles({
 
 const Barcode = () => {
 
-  const Student = useSelector(state => state.Student)
-  const [data,setData]=useState({});
+  const StudentRecord = useSelector(state => state.Student.studentData)
   const classes = useStyles();
 
-
-  useEffect(()=>{
-    setData(Student.studentData)
-  },[Student?.studentData])
-  
-
-  
-
       const  {inputRef}  = useBarcode({
-        value: data,
+        value: StudentRecord,
         options: {
-          text: data.name,
+          text: StudentRecord.name ? StudentRecord.name : " ",
           background: '#1B7D00',
         }
       });
-
-
-  
-  
 
   return (
     <>
@@ -81,10 +68,10 @@ const Barcode = () => {
           </Grid>
           <Grid item xs={12}>
             <Item className={classes.content} elevation={0}>
-              <h4>Name: {data.name}</h4>
-              <h4>Seat No: {data.seatNo}</h4>
-              <h4>Enrollment No: {data.enroll}</h4>
-              <h4>Group (CS/SE): {data.group}</h4>
+              <h4>Name: {StudentRecord.name}</h4>
+              <h4>Seat No: {StudentRecord.seatNo}</h4>
+              <h4>Enrollment No: {StudentRecord.enroll}</h4>
+              <h4>Group (CS/SE): {StudentRecord.group}</h4>
               <hr/>
             </Item>
           </Grid>
