@@ -45,12 +45,11 @@ const Barcode = () => {
 
   const StudentRecord = useSelector(state => state.Student.studentData)
   const classes = useStyles();
-
       const  {inputRef}  = useBarcode({
-        value: StudentRecord,
+        value:StudentRecord?.seatNo,
         options: {
           text: StudentRecord.name ? StudentRecord.name : " ",
-          background: '#1B7D00',
+          background: '#ffffff',
         }
       });
 

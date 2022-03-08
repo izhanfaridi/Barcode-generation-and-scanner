@@ -1,8 +1,8 @@
 import React , {useEffect, useState} from 'react'
 import styled from 'styled-components';
 import './styles.css'
-import {addStudent} from '../redux/studentDataRedux'
 import { useDispatch, useSelector } from 'react-redux';
+import { addStudentDb } from '../redux/apiCalls';
 
 
 const Title = styled.h1`text-align:center;`
@@ -51,7 +51,8 @@ const GetData = () =>{
             group,
         } 
         setData({...payload})
-        dispatch(addStudent(payload))
+        //dispatch(addStudent(payload))
+        addStudentDb(dispatch,payload)
     }
 
     
